@@ -22,7 +22,7 @@ console.log(`Screenshot will be ${width} x ${height} (control with --width and -
 
 const evalSource = argv.eval || '/* no-op */';
 const _eval = new Function(evalSource);
-console.log(`Will evaluate ${evalSource} before each capture (pass function body with --eval)`);
+console.log(`Will evaluate ${evalSource} in page context before each capture (pass JavaScript expression with --eval)`);
 
 function captureFrame() {
     const filename = moment().toISOString()+'.png';
