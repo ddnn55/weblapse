@@ -19,7 +19,9 @@ Capturing one frame every 60000 milliseconds (control with --period)
 Screenshot will be taken 3000 milliseconds after page load (control with --delay)
 Screenshot will be 1536 x 1536 (control with --width and --height)
 Will evaluate /* no-op */ in page context before each capture (pass JavaScript expression with --eval)
-saved 2017-07-27T18:02:59.602Z.png
+saved 2017-07-27T18:40:09.576Z.png
+saved 2017-07-27T18:41:09.577Z.png
+saved 2017-07-27T18:42:09.583Z.png
 
 etc....
 
