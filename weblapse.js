@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
-var d3 = require('d3'),
-    Nightmare = require('nightmare'),
+var Nightmare = require('nightmare'),
     moment = require('moment');
 
 var argv = require('minimist')(process.argv.slice(2))
