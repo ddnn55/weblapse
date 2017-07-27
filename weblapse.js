@@ -23,9 +23,11 @@ const evalSource = argv.eval || '/* no-op */';
 const _eval = new Function(evalSource);
 console.log(`Will evaluate ${evalSource} in page context before each capture (pass JavaScript expression with --eval)`);
 
+const nightmare = new Nightmare({show: false});
+
 function captureFrame() {
-    const filename = moment().toISOString()+'.png';
-  new Nightmare({show: false})
+  const filename = moment().toISOString()+'.png';
+  nightmare
     // resize viewport to target later so window resize listeners update
     // after evaluate() possibly changes DOM.
     // not a perfect solution.. could lead to unexpected gotchas...
