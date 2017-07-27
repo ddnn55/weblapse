@@ -20,11 +20,16 @@ const width = argv.width || 1536;
 const height = argv.height || 1536;
 console.log(`Screenshot will be ${width} x ${height} (control with --width and --height)`);
 
+const evalSource = argv.eval || '/* no-op */';
+const _eval = new Function(evalSource);
+console.log(`Will evaluate ${evalSource} before each capture (pass function body with --eval)`);
+
 function captureFrame() {
     const filename = moment().toISOString()+'.png';
   new Nightmare({show: false})
     .viewport(width, height)
     .goto(url)
+    .evaluate(_eval)
     .wait(delay)
     .screenshot(filename)
     .run(() => {
