@@ -20,15 +20,12 @@ const width = argv.width || 1536;
 const height = argv.height || 1536;
 console.log(`Screenshot will be ${width} x ${height} (control with --width and --height)`);
 
-//screen shot index.html
 function captureFrame() {
     const filename = moment().toISOString()+'.png';
   new Nightmare({show: false})
     .viewport(width, height)
     .goto(url)
-    //.evaluate(() => document.querySelector('html').style.overflow = 'hidden' )
     .wait(delay)
-    //.screenshot('preview.png')
     .screenshot(filename)
     .run(() => {
         console.log('saved ' + filename);
