@@ -22,6 +22,11 @@ Will evaluate /* no-op */ in page context before each capture (pass JavaScript e
 saved 2017-07-27T18:40:09.576Z.png
 saved 2017-07-27T18:41:09.577Z.png
 saved 2017-07-27T18:42:09.583Z.png
+saved 2017-07-27T18:43:09.596Z.png
+saved 2017-07-27T18:44:09.604Z.png
+saved 2017-07-27T18:45:09.618Z.png
+saved 2017-07-27T18:46:09.635Z.png
+saved 2017-07-27T18:47:09.646Z.png
 
 etc....
 
