@@ -27,9 +27,13 @@ console.log(`Will evaluate ${evalSource} in page context before each capture (pa
 function captureFrame() {
     const filename = moment().toISOString()+'.png';
   new Nightmare({show: false})
-    .viewport(width, height)
+    // resize viewport to target later so window resize listeners update
+    // after evaluate() possibly changes DOM.
+    // not a perfect solution.. could lead to unexpected gotchas...
+    .viewport(Math.round(width/2), Math.round(height/2))
     .goto(url)
     .evaluate(_eval)
+    .viewport(width, height)
     .wait(delay)
     .screenshot(filename)
     .run(() => {
