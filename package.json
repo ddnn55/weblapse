@@ -1,8 +1,8 @@
 {
   "name": "weblapse",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "bin": {
-  	"weblapse": "./weblapse.js"
+    "weblapse": "./weblapse.js"
   },
   "dependencies": {
     "d3": "^4.10.0",
