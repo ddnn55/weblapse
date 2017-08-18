@@ -15,6 +15,9 @@ console.log(`Capturing one frame every ${period} milliseconds (control with --pe
 const delay = argv.delay || 3000;
 console.log(`Screenshot will be taken ${delay} milliseconds after page load (control with --delay)`);
 
+const count = argv.count || 3000;
+console.log(`Will quit after capturing ${count} frames (control with --count)`);
+
 const width = argv.width || 1536;
 const height = argv.height || 1536;
 console.log(`Screenshot will be ${width} x ${height} (control with --width and --height)`);
@@ -24,6 +27,7 @@ const _eval = new Function(evalSource);
 console.log(`Will evaluate ${evalSource} in page context before each capture (pass JavaScript expression with --eval)`);
 
 const nightmare = new Nightmare({show: false});
+let numberOfFramesCaptured = 0;
 
 function captureFrame() {
   const filename = moment().toISOString()+'.png';
@@ -39,8 +43,14 @@ function captureFrame() {
     .screenshot(filename)
     .run(() => {
         console.log('saved ' + filename);
+          if(++numberOfFramesCaptured >= count) {
+            console.error(`Captured ${numberOfFramesCaptured} frames. Requested to capture that many, so quitting.`);
+            process.exit(0);
+        }
     });
+
 }
+
 
 // every minute
 setInterval(captureFrame, period);
